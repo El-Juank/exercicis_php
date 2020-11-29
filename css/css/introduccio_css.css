@@ -1,0 +1,37 @@
+/* INTRODUCCIÓN AL CSS */
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: chartreuse;
+  font-size: 3em;
+  text-decoration: underline;
+}
+p {
+  color: ghostwhite;
+  text-align: justify;
+}
+p span {
+  color: chartreuse;
+  font-weight: 500;
+  font-style: italic;
+}
+ul {
+  padding: 0px;
+  position: absolute;
+  left: 155px;
+}
+ul li {
+  float: left;
+  list-style: none;
+  padding-left: 10px;
+}
+/* Añadir linea a todos los elementos de la lista excepto al último */
+ul li:not(:last-child):after {
+  content: "";
+  padding-right: 10px;
+  border-right: 1px solid ghostwhite;
+}
+ul li a:hover {
+  color: chartreuse;
+  text-decoration: none;
+}

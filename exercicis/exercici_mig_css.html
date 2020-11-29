@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Juan Mallet" />
+    <meta
+      name="description"
+      content="Exercici mig CSS, si us plau Miquel posa'm bona nota"
+    />
+    <title>Exercici mig CSS</title>
+  </head>
+  <style type="text/css">
+    body {
+      background-color: #f4dfe3;
+      /* overflow: hidden; */
+      /* Per desactiver l'scroll; és opcional */
+      margin-bottom: 16px;
+    }
+    /* També és podria fer de la següent manera sense utilitzar el div "bottom"  
+    body {
+      background-color: #f4dfe3;
+      background-image: url(https://i.imgur.com/emrgJ1j.jpg);
+      background-position: center bottom;
+      background-repeat: repeat-x;
+      background-size: 35px;
+    } */
+    .container {
+      background-color: #fff; /* o "white" */
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      border-bottom: 10px solid #fc5f5f;
+    }
+    .container img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .container h1,
+    h2 {
+      color: #fc5f5f;
+      font-family: serif;
+      font-weight: bold;
+    }
+    .container p,
+    ul,
+    table,
+    form,
+    a {
+      font-family: sans-serif;
+    }
+    .container p {
+      font-size: 18px;
+      width: 99%;
+    }
+    .container p b,
+    i {
+      font-size: 27px;
+      text-decoration: underline;
+    }
+    .projects {
+      background-color: #f4dfe3;
+      width: 150px;
+      position: absolute;
+      padding: 10px 50px 10px 10px;
+      margin-left: 590px;
+      border: 1px solid #fc5f5f;
+    }
+    .projects ul li {
+      margin: 0 0 15px 0;
+      /* Separació elements de la llista */
+    }
+    form label {
+      font-weight: bold;
+    }
+    form fieldset legend {
+      font-weight: bold;
+    }
+    form input[type="text"] {
+      background-color: #f4dfe3;
+    }
+    .footer {
+      border-top: 2px dashed #f4dfe3;
+      text-align: center;
+      padding: 3px;
+    }
+    /*.footer a:last-child {
+      color: purple; //o "#551A8B"
+    }*/
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      background-image: url(https://i.imgur.com/emrgJ1j.jpg);
+      background-size: contain;
+      background-repeat: repeat;
+      background-position: bottom;
+      width: 100%;
+      height: 35px;
+      z-index: -100;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/66/Girl_Develop_It_Logo.png"
+        alt="Girl Develop It Logo"
+      />
+      <h1>About</h1>
+      <p>
+        It can be intimidating for women to learn and ask questions when they
+        are in an <b>extreme minority</b>. While open and welcoming, today's
+        budding developer community is up to <b>91% male</b>. If we can empower
+        more females with the confidence in their technological capabilities
+        <i>we can begin to change this landscape</i>.
+      </p>
+      <div class="projects">
+        <h2>Projects</h2>
+        <ul>
+          <li>USA</li>
+          <ul>
+            <!-- Li poso els "target='_blank'" en relació al feedback -->
+            <li><a href="#" target="_blank" title="New York">New York</a></li>
+            <li><a href="#" target="_blank" title="Columbus">Columbus</a></li>
+            <li><a href="#" target="_blank" title="Austin">Austin</a></li>
+            <li><a href="#" target="_blank" title="Philly">Philly</a></li>
+          </ul>
+          <li>World</li>
+          <ul>
+            <li><a href="#" target="_blank" title="Ottawa">Ottawa</a></li>
+            <li><a href="#" target="_blank" title="Sydney">Sydney</a></li>
+          </ul>
+        </ul>
+      </div>
+      <h2>Upcoming Classes</h2>
+      <table border="1">
+        <tr>
+          <th>Location</th>
+          <th>Topic</th>
+        </tr>
+        <tr>
+          <td>New York</td>
+          <td>JavaScript & jQuery</td>
+        </tr>
+        <tr>
+          <td>New York</td>
+          <td>HTML & CSS</td>
+        </tr>
+      </table>
+      <h2>Sign Up!</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="" /><br />
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" value="" /><br />
+        <label for="locations">Location:</label>
+        <select name="locations" id="locations">
+          <option value="empty">Select your location</option>
+          <option value="new_york">New York</option>
+          <option value="san_fransisco">San Fransisco</option>
+        </select>
+        <fieldset style="width: 70%">
+          <legend>Gender:</legend>
+          <label for="female">Female</label>
+          <input type="radio" name="gender" value="female" id="female" />
+          <label for="male">Male</label>
+          <input type="radio" name="gender" value="male" id="male" />
+        </fieldset>
+        <br />
+        <label for="male">Exprience:</label><br />
+        <textarea cols="20" rows="2"></textarea> <br />
+        <input type="submit" value="Sign Up" />
+      </form>
+      <br />
+      <div class="footer">
+        <a href="#" target="_blank" title="Twitter">Twitter</a> |
+        <a href="#" target="_blank" title="Facebook">Facebook</a> |
+        <a href="#" target="_blank" title="Flickr">Flickr</a>
+      </div>
+    </div>
+    <div class="bottom"></div>
+  </body>
+</html>

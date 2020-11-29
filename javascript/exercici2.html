@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="El Juank" />
+    <title>Pasta Gansa</title>
+    <link rel="icon" href="" />
+    <!--Bootstrap CDN-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--Font Awesome CDN-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI-->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI CSS-->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!--Estils-->
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+      /*General*/
+      :root {
+        --PastaGansaRed: #f42f2c;
+        --pastaGansaGreen: #1f8330;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Pacifico", cursive;
+      }
+      .title {
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        height: 50px;
+        box-shadow: -6px 0 20px rgba(0, 0, 0, 0.1);
+      }
+      .title a {
+        text-decoration: none;
+        color: black;
+      }
+      /*Menu*/
+      .fixed-menu {
+        position: fixed;
+        left: 0;
+        top: 50px;
+        z-index: 998;
+        width: 150px;
+        background: #fff;
+        height: 100%;
+        overflow: auto;
+        overflow-x: hidden;
+        box-shadow: -6px 0 20px rgba(0, 0, 0, 0.1);
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+      }
+      .fixed-menu .nav-wraper .navbar {
+        padding: 0;
+      }
+      .navbar {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+      }
+      .navbar-nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+      }
+      .fixed-menu .nav-wraper .navbar .navbar-nav {
+        width: 100%;
+      }
+      .fixed-menu .nav-wraper .navbar .navbar-nav .nav-item .nav-link:hover,
+      .fixed-menu .nav-wraper .navbar .navbar-nav .nav-item .nav-link.active {
+        background: var(--PastaGansaRed);
+        color: #fff;
+        box-shadow: 0 20px 20px rgba(244, 47, 44, 0.1);
+      }
+      .fixed-menu .nav-wraper .navbar .navbar-nav .nav-item .nav-link {
+        color: #000;
+        text-transform: capitalize;
+        font-size: 12px;
+        padding: 10px 0 10px 20px;
+        display: block;
+        text-align: left;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+      }
+      .navbar-nav .nav-link {
+        padding-right: 0;
+        padding-left: 0;
+      }
+      .nav-link:focus,
+      .nav-link:hover {
+        text-decoration: none;
+      }
+      /* Plats */
+      .vertical-center {
+        min-height: 90%;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+      }
+      .row h2 {
+        position: absolute;
+        top: -100px;
+      }
+      .row img {
+        max-height: 300px;
+      }
+      .row p span {
+        color: var(--PastaGansaRed);
+        font-weight: bold;
+      }
+      .row h3 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      .row h3 span {
+        color: var(--pastaGansaGreen);
+      }
+      /* Media queries */
+      /* Tablet - 768px */
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+      }
+
+      /* Large Mobile - 480px */
+      @media only screen and (max-width: 767px) {
+        #plats {
+          margin-left: 130px;
+          margin-top: 100px;
+        }
+      }
+    </style>
+    <script language="javascript">
+      /*function triarPlat() {
+        var platsInfo = [
+          {
+            nom: "Macaroni",
+            imatge:
+              "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+            descripcio: "",
+            preu: "5,50€",
+          },
+          {
+            nom: "Fusilli",
+            imatge:
+              "https://cdn.pixabay.com/photo/2014/02/27/12/26/meat-sauce-275815_1280.jpg",
+            descripcio: "",
+            preu: "5€",
+          },
+          {
+            nom: "Farfalle",
+            imatge:
+              "https://d1uz88p17r663j.cloudfront.net/original/2f8f7a4f78963bbddbfe04f08060a7bb_far.png",
+            descripcio: "",
+            preu: "5,50€",
+          },
+          {
+            nom: "Spaghetti",
+            imatge:
+              "https://d1uz88p17r663j.cloudfront.net/original/7966997169047baaf54366a2322fabe8_RERE_.png",
+            descripcio: "",
+            preu: "5€",
+          },
+          {
+            nom: "Ravioli",
+            imatge:
+              "https://media.istockphoto.com/photos/ravioli-with-tomato-sauce-picture-id184637819?s=2048x2048",
+            descripcio: "",
+            preu: "6,50€",
+          },
+        ];
+        //Variable de la capa on li canviarem la info
+        var plats = document.getElementById("plats");
+        plats.innerHTML = "<img src='" + platsInfo[index].imatge + "'>";
+      }*/
+      $(function () {
+        $(".nav-item a").click(function () {
+          $("a").removeClass("active");
+          $(this).addClass("active");
+          var index = $(".nav-link").index(this);
+          //alert("Index: " + index);
+          var platsInfo = [
+            {
+              nom: "Macaroni",
+              imatge:
+                "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+              descripcio:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum amet dolor pariatur debitis, delectus nam quod <span>explicabo officiis</span> optio consequuntur maxime ipsam, aspernatur cum veniam quasi sapiente iure? Nihil, obcaecati.",
+              preu: "5,50€",
+            },
+            {
+              nom: "Fusilli",
+              imatge:
+                "https://cdn.pixabay.com/photo/2014/02/27/12/26/meat-sauce-275815_1280.jpg",
+              descripcio:
+                "Esse eu sint laborum aliqua ea voluptate sit. Eu et occaecat commodo occaecat dolore consectetur nostrud est ea voluptate eiusmod et officia ex. Mollit Lorem nulla <span>cillum esse ex elit sit elit</span> in eu eiusmod. Laborum deserunt incididunt officia consectetur ea aliquip cillum veniam occaecat nulla. Consectetur commodo sunt ipsum culpa dolor enim ex.",
+              preu: "5€",
+            },
+            {
+              nom: "Farfalle",
+              imatge:
+                "https://d1uz88p17r663j.cloudfront.net/original/2f8f7a4f78963bbddbfe04f08060a7bb_far.png",
+              descripcio:
+                "Officia aute veniam dolore tempor minim laboris Lorem sit quis ullamco esse incididunt mollit. Deserunt aute ipsum laborum magna fugiat cillum ea magna amet elit velit reprehenderit. Esse elit do sunt ex ut quis. Tempor velit id deserunt irure do.",
+              preu: "5,50€",
+            },
+            {
+              nom: "Spaghetti",
+              imatge:
+                "https://d1uz88p17r663j.cloudfront.net/original/7966997169047baaf54366a2322fabe8_RERE_.png",
+              descripcio:
+                "Ut ad proident magna elit consectetur commodo. Dolor est ut Lorem amet cupidatat ullamco elit magna cillum aliqua irure aliquip excepteur ipsum. Aute fugiat occaecat in mollit excepteur consequat ad reprehenderit exercitation nisi duis sint irure.",
+              preu: "5€",
+            },
+            {
+              nom: "Ravioli",
+              imatge:
+                "https://media.istockphoto.com/photos/ravioli-with-tomato-sauce-picture-id184637819?s=2048x2048",
+              descripcio:
+                "Laborum ea in labore non officia aute sint id exercitation nulla anim adipisicing. Reprehenderit qui velit consequat Lorem culpa. Eiusmod Lorem nisi officia amet dolore sit ea amet incididunt tempor ipsum. Incididunt deserunt est reprehenderit esse culpa nulla ea proident dolore mollit. Officia consequat eu sit occaecat Lorem aliquip officia eu esse nulla minim. Amet quis proident laborum irure magna tempor nostrud.",
+              preu: "6,50€",
+            },
+          ];
+          //Variable de la capa on li canviarem la info
+          var plats = document.getElementById("plats");
+          plats.innerHTML =
+            "<div class='col-lg-6'><h2>" +
+            platsInfo[index].nom +
+            "</h2><img src='" +
+            platsInfo[index].imatge +
+            "'></div><div class='col-lg-6 text-justify'><p>" +
+            platsInfo[index].descripcio +
+            "</p><h3>Preu: <span>" +
+            platsInfo[index].preu +
+            "</span></h3></div>";
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title text-center">
+        <a href="#" title="Pasta Gansa"><h1>Pasta Gansa</h1></a>
+      </div>
+      <header class="fixed-menu">
+        <div class="nav-wraper">
+          <div class="navbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="#" onclick="return triarPlat()"
+                  >Macaroni</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="return triarPlat()"
+                  >Fusilli</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="return triarPlat()"
+                  >Farfalle</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="return triarPlat()"
+                  >Spaghetti</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="return triarPlat()"
+                  >Ravioli</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="vertical-center">
+        <div class="row" id="plats">
+          <div class="col-lg-6">
+            <h2>Macaroni</h2>
+            <img
+              src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+              alt="Macaroni"
+            />
+          </div>
+          <div class="col-lg-6 text-justify">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              amet dolor pariatur debitis, delectus nam quod
+              <span>explicabo officiis</span> optio consequuntur maxime ipsam,
+              aspernatur cum veniam quasi sapiente iure? Nihil, obcaecati.
+            </p>
+            <h3>Preu: <span>5,50€</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

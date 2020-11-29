@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Juan Mallet" />
+    <meta
+      name="description"
+      content="Exercici avançat CSS, si us plau Miquel posa'm bona nota"
+    />
+    <title>Exercici avançat CSS</title>
+    <style type="text/css">
+      body,
+      html {
+        height: 100%;
+      }
+      .container {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        position: relative;
+        height: 100%;
+      }
+      .header {
+        position: absolute;
+        background-color: #9b35cc;
+        width: 100%;
+        height: 150px;
+      }
+      .menu {
+        position: absolute;
+        width: 25%;
+        left: 0;
+        top: 160px;
+      }
+      .menu .caixa {
+        background-color: #33b3e3;
+        height: 50px;
+        margin-bottom: 10px;
+      }
+      .main {
+        position: absolute;
+        top: 160px;
+        right: 0;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fff;
+        /*border: 1px solid black;*/
+        /* Per veure millor la capa */
+        width: 50%;
+        height: 485px;
+        z-index: -100;
+        /* Per enviar-lo darrera; acabar d'ajustar-lo amb la resta d'elements de la pàgina */
+      }
+      .info {
+        background-color: #33b3e3;
+        width: 25%;
+        height: 485px;
+        position: absolute;
+        top: 160px;
+        left: 75%;
+      }
+      .footer {
+        position: absolute;
+        bottom: 10px;
+        background-color: #049acc;
+        width: 100%;
+        height: 150px;
+      }
+      /* Media queries */
+
+      /* Tablet - 768px */
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        body,
+        html {
+          height: 975px;
+          /* Per acabar d'ajustar la mida de la plana en format tablet */
+        }
+        .menu {
+          width: 20%;
+        }
+        .main {
+          margin-right: 0px;
+          width: 80%;
+          height: 485px;
+        }
+        .info {
+          top: auto;
+          left: 0;
+          right: 0;
+          bottom: 170px;
+          width: 98%;
+          /* Utilitzo el width al 98% perque aquesta part és lleugerament més petita que el footer */
+          margin-left: auto;
+          margin-right: auto;
+          height: 150px;
+        }
+      }
+      /* Mobile - 480px */
+      @media only screen and (max-width: 767px) {
+        body,
+        html {
+          height: 1215px;
+          /* Per acabar d'ajustar la mida de la plana en format móbil */
+        }
+        .menu {
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          width: 98%;
+          /* Utilitzo el width al 98% perque aquesta part és lleugerament més petita que el header */
+        }
+        .main {
+          top: 400px;
+          margin-right: 0px;
+          width: 100%;
+          height: 485px;
+        }
+        .info {
+          top: auto;
+          left: 0;
+          right: 0;
+          bottom: 170px;
+          width: 98%;
+          /* Utilitzo (novament) el width al 98% perque aquesta part és lleugerament més petita que el footer */
+          margin-left: auto;
+          margin-right: auto;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"></div>
+      <div class="menu">
+        <div class="caixa"></div>
+        <div class="caixa"></div>
+        <div class="caixa"></div>
+        <div class="caixa"></div>
+      </div>
+      <div class="main"></div>
+      <div class="info"></div>
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>

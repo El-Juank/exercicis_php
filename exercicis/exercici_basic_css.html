@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Juan Mallet" />
+    <meta
+      name="description"
+      content="Exercici bàsic CSS, si us plau Miquel posa'm bona nota"
+    />
+    <title>Exercici bàsic CSS</title>
+  </head>
+  <style type="text/css">
+    /* Tots els estils aquí sense modificar l'html */
+    h1,
+    b,
+    i,
+    h2 {
+      color: red;
+    }
+    ul ul li {
+      color: red;
+    }
+    table tr td {
+      color: red;
+    }
+    table tr td:nth-last-of-type(2) {
+      color: blue;
+    }
+    form label {
+      color: blue;
+    }
+    form input[type="text"] {
+      color: red;
+    }
+    form fieldset legend {
+      color: blue;
+    }
+    a:nth-last-child(3) {
+      color: red;
+    }
+  </style>
+  <body>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/66/Girl_Develop_It_Logo.png"
+      alt="Girl Develop It Logo"
+    />
+    <h1>About</h1>
+    <p>
+      It can be intimidating for women to learn and ask questions when they are
+      in an <br /><b>extreme minority</b>. While open and welcoming, today's
+      budding developer<br />
+      community is up to <b>91 % male</b>. If we can empower more females with
+      the confidence<br />
+      in their technological capabilities
+      <i>we can begin to change this landscape</i>.
+    </p>
+    <h2>Our Locations</h2>
+    <ul>
+      <li>USA</li>
+      <ul>
+        <!-- Li poso els "target='_blank'" en relació al feedback -->
+        <li><a href="#" target="_blank">New York</a></li>
+        <li><a href="#" target="_blank">Columbus</a></li>
+        <li><a href="#" target="_blank">Austin</a></li>
+        <li><a href="#" target="_blank">Philly</a></li>
+      </ul>
+      <li>World</li>
+      <ul>
+        <li><a href="#" target="_blank">Ottawa</a></li>
+        <li><a href="#" target="_blank">Sydney</a></li>
+      </ul>
+    </ul>
+    <h2>Upcoming Classes</h2>
+    <table border="1">
+      <tr>
+        <th>Location</th>
+        <th>Topic</th>
+      </tr>
+      <tr>
+        <td>New York</td>
+        <td>JavaScript & jQuery</td>
+      </tr>
+      <tr>
+        <td>New York</td>
+        <td>HTML & CSS</td>
+      </tr>
+    </table>
+    <h2>Sign Up!</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="Pamela Fox" /><br />
+      <label for="email">Email:</label>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        value="pamela@gmail.com"
+      /><br />
+      <label for="locations">Location:</label>
+      <select name="locations" id="locations">
+        <option value="empty">Select your location</option>
+        <option value="new_york">New York</option>
+        <option value="san_fransisco">San Fransisco</option>
+      </select>
+      <fieldset style="width: 40%">
+        <!-- Se que he fet servir CSS però ha set per ajustar el fieldset, pots obviar-ho (Aixó és de l'exercici anterior) -->
+        <legend>Gender:</legend>
+        <label for="female">Female</label>
+        <input type="radio" name="gender" value="female" id="female" />
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="male" id="male" />
+      </fieldset>
+      <br />
+      <label for="male">Exprience:</label><br />
+      <textarea cols="20" rows="2"></textarea> <br />
+      <input type="submit" value="Sign Up" />
+    </form>
+    <br />
+    <a href="#" target="_blank">Twitter</a> |
+    <a href="#" target="_blank">Facebook</a> |
+    <a href="#" target="_blank">Flickr</a>
+  </body>
+</html>

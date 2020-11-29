@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="El Juank" />
+    <title>Exercici taula del 5</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.icon-icons.com/icons2/2108/PNG/512/javascript_icon_130900.png"
+    />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="../css/css/bootstrap.min.css" />
+    <!--Font Awesome CDN-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--Estils propis-->
+    <link href="" rel="stylesheet" type="text/css" />
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI-->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI CSS-->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!--Estils-->
+    <style type="text/css">
+      table {
+        text-align: center;
+        margin: 25px auto;
+      }
+      table tr td {
+        width: 33%;
+        padding: 5px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <table id="taula4" width="250" border="1"></table>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <table id="taula5" width="250" border="1"></table>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <table id="taula6" width="250" border="1"></table>
+        </div>
+      </div>
+    </div>
+    <script language="javascript">
+      var taula4 = document.getElementById("taula4");
+      var taula5 = document.getElementById("taula5");
+      var taula6 = document.getElementById("taula6");
+      i = 0;
+      for (i = 0; i < 10; i++) {
+        console.log("Linia de text d'exemple nº" + i);
+        taula4.innerHTML +=
+          //Es muy importante poner el += para que vaya ponga más de uno
+          "<tr><td>" +
+          (i + 1) +
+          "</td><td>4</td><td>" +
+          (i + 1) * 4 +
+          "</td></tr>";
+        taula5.innerHTML +=
+          //Es muy importante poner el += para que vaya ponga más de uno
+          "<tr><td>" +
+          (i + 1) +
+          "</td><td>5</td><td>" +
+          (i + 1) * 5 +
+          "</td></tr>";
+        taula6.innerHTML +=
+          //Es muy importante poner el += para que vaya ponga más de uno
+          "<tr><td>" +
+          (i + 1) +
+          "</td><td>6</td><td>" +
+          (i + 1) * 6 +
+          "</td></tr>";
+      }
+    </script>
+  </body>
+</html>

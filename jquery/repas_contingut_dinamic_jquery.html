@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="El Juank" />
+    <title>Repàs contingut dinàmic jQuery</title>
+    <link rel="icon" href="" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="../css/css/bootstrap.min.css" />
+    <!--Font Awesome CDN-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--Estils propis-->
+    <link href="" rel="stylesheet" type="text/css" />
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI-->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI CSS-->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!--Estils-->
+    <style type="text/css"></style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="button" value="Crear" id="crear" /><br />
+      <input type="button" value="Saludar" class="botoSaludar" />
+      <h1>
+        Aliqua ipsum qui dolor laborum tempor fugiat ullamco reprehenderit
+      </h1>
+    </div>
+    <script language="javascript">
+      $(function () {
+        $(document).on("click", ".botoSaludar", function () {
+          alert("Hola!");
+        });
+
+        //var n = 0;
+
+        $("#crear").click(function () {
+          var titol = $("h1");
+          var container = $(".container");
+          //n++;
+          container.append(
+            "<p><input type='button' value='Saludar' class='botoSaludar'></p>"
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

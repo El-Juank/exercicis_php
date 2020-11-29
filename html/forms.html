@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Repaso de tablas</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style type="text/css">
+      .espacio {
+        padding-top: 10px;
+        padding-left: 5px;
+        padding-bottom: 10px;
+      }
+      .turnos input:last-of-type {
+        margin-bottom: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tabla</h1>
+      <form
+        method="get"
+        action="process_form.php"
+        enctype="multipart/form-data"
+      >
+        <!-- Ponemos el atributo "action" para enlazar la tabla/formulario con un archivo php -->
+        <label for="nombre">Nombre:</label>
+        <!-- Usamos "for" e "id" para enlazar las label con los input -->
+        <input type="text" name="nombre" id="nombre" size="20" maxlength="15" />
+        <br />
+        <!-- Podemos usar los atributos "size" y "maxlenght" para controlar el tamaño y el numero de caracteres de cada input -->
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" /> <br />
+        <label for="direccion">Direccion:</label>
+        <input
+          type="text"
+          name="direccion"
+          id="direccion"
+          placeholder="Dirección"
+          size="19"
+        />
+        <br />
+        <input type="password" name="contrasena" /> <br />
+        <label for="color">Elige tu color:</label>
+        <input type="color" id="color" /><br />
+        <input type="checkbox" name="privacidad" id="privacidad" /><label
+          for="privacidad"
+          class="espacio"
+        >
+          He leido y accepto las condiciones</label
+        >
+        <br />
+        <fieldset>
+          <legend>Elige tu el turno al que quieras ir:</legend>
+          <div class="turnos">
+            <input type="radio" name="turno" value="manana" /> Mañana <br />
+            <input type="radio" name="turno" value="tarde" /> Tarde <br />
+            <input type="radio" name="turno" value="noche" /> Noche <br />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Dia de la semana:</legend>
+          <div class="turnos">
+            <input type="radio" name="turno" value="lunes" /> Lunes <br />
+            <input type="radio" name="turno" value="martes" /> Martes <br />
+            <input type="radio" name="turno" value="miercoles" /> Miércoles
+            <br />
+          </div>
+        </fieldset>
+        <textarea cols="25" rows="5"></textarea><br />
+        <input type="submit" value="Envia formulario" />
+        <input type="reset" value="Resetealo todo papa" />
+      </form>
+    </div>
+    <!--Optional JavaScript-->
+    <!--jQuery first, then Popper.js, then Bootstrap JS-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

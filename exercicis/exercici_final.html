@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Juan Mallet" />
+    <meta
+      name="description"
+      content="Exercici final, renoi, quin nom! Si us plau Miquel posa'm bona nota"
+    />
+    <title>Exercici final</title>
+    <link rel="icon" href="" />
+    <!--Bootstrap CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI-->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI CSS-->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!--Chartist-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <!--Estils-->
+    <style type="text/css">
+      .selectors label {
+        font-size: 1.5rem;
+      }
+      .selectors select {
+        width: auto;
+        margin-bottom: 10px;
+      }
+      /* Color dels selectors */
+      #selectColor1 {
+        color: #d70206;
+      }
+      #selectColor2 {
+        color: #f05b4f;
+      }
+      #selectColor3 {
+        color: #f4c63d;
+      }
+      #selectColor4 {
+        color: #453d3f;
+      }
+      #selectColor5 {
+        color: #d17905;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Evolució del preu del peix</h1>
+
+      <!-- Selectors -->
+      <div class="selectors">
+        <label id="selectColor1">█</label>
+        <select id="selector1" class="custom-select">
+          <option value="ossisBlau" selected>Ossis Blau</option>
+          <option value="ossisBlanc">Ossis Blanc</option>
+          <option value="cefalopodes">Cefalòpodes</option>
+          <option value="gasteropodes">Gasteròpodes</option>
+          <option value="bivalves">Bivalves</option>
+        </select>
+        <br />
+        <label id="selectColor2">█</label>
+        <select id="selector2" class="custom-select">
+          <option value="ossisBlau">Ossis Blau</option>
+          <option value="ossisBlanc" selected>Ossis Blanc</option>
+          <option value="cefalopodes">Cefalòpodes</option>
+          <option value="gasteropodes">Gasteròpodes</option>
+          <option value="bivalves">Bivalves</option>
+        </select>
+        <br />
+        <label id="selectColor3">█</label>
+        <select id="selector3" class="custom-select">
+          <option value="ossisBlau">Ossis Blau</option>
+          <option value="ossisBlanc">Ossis Blanc</option>
+          <option value="cefalopodes" selected>Cefalòpodes</option>
+          <option value="gasteropodes">Gasteròpodes</option>
+          <option value="bivalves">Bivalves</option>
+        </select>
+        <br />
+        <label id="selectColor4">█</label>
+        <select id="selector4" class="custom-select">
+          <option value="ossisBlau">Ossis Blau</option>
+          <option value="ossisBlanc">Ossis Blanc</option>
+          <option value="cefalopodes">Cefalòpodes</option>
+          <option value="gasteropodes" selected>Gasteròpodes</option>
+          <option value="bivalves">Bivalves</option>
+        </select>
+        <br />
+        <label id="selectColor5">█</label>
+        <select id="selector5" class="custom-select">
+          <option value="ossisBlau">Ossis Blau</option>
+          <option value="ossisBlanc">Ossis Blanc</option>
+          <option value="cefalopodes">Cefalòpodes</option>
+          <option value="gasteropodes">Gasteròpodes</option>
+          <option value="bivalves" selected>Bivalves</option>
+        </select>
+      </div>
+
+      <!-- Gràfic -->
+      <div class="ct-chart ct-perfect-fourth"></div>
+    </div>
+    <script language="javascript">
+      $(function () {
+        $.get(
+          "https://analisi.transparenciacatalunya.cat/resource/ge3m-4jgm.json",
+          function (data, status) {
+            var i = 0;
+            var arrAnys = [];
+            var preuOssisBlau = [];
+            var preuOssisBlanc = [];
+            var preuCefalopodes = [];
+            var preuGasteropodes = [];
+            var preuBivalves = [];
+            for (i = 0; i < data.length; i++) {
+              var peixos = data[i];
+              var anys = peixos.any;
+              var preus = peixos.preu_kg;
+
+              if (peixos.grup == "OSSIS-BLAU") {
+                preuOssisBlau.push(preus);
+              } else if (peixos.grup == "OSSIS-BLANC") {
+                preuOssisBlanc.push(preus);
+              } else if (peixos.grup == "CEFALÒPODES") {
+                preuCefalopodes.push(preus);
+              } else if (peixos.grup == "GASTERÒPODES") {
+                preuGasteropodes.push(preus);
+              } else if (peixos.grup == "BIVALVES") {
+                preuBivalves.push(preus);
+              }
+
+              arrAnys.push(anys);
+              //Merci per lo del .push()! No hi havia caigut i a Stackoverflow es flipen
+            }
+
+            var arrAnysFinal = arrAnys.filter(function (elem, index, self) {
+              return index === self.indexOf(elem);
+              //Estimo molt aquest codi <3
+            });
+
+            //Gràfic
+            var data = {
+              labels: arrAnysFinal,
+              series: [
+                preuOssisBlau,
+                preuOssisBlanc,
+                preuCefalopodes,
+                preuGasteropodes,
+                preuBivalves,
+              ],
+            };
+
+            //Canviar la mida del gràfic
+            var options = {
+              width: 1200,
+              height: 500,
+            };
+
+            new Chartist.Line(".ct-chart", data, options);
+
+            //Selectors
+            var selector1 = preuOssisBlau;
+            var selector2 = preuOssisBlanc;
+            var selector3 = preuCefalopodes;
+            var selector4 = preuGasteropodes;
+            var selector5 = preuBivalves;
+
+            var myChart = new Chartist.Line(".ct-chart", data, options);
+
+            //He intentat possar les seguents funcions dins d'un for() per no repetir-les però no m'ha funcionat
+
+            //Selector 1
+            $("#selector1").on("change", function () {
+              if (this.value == "ossisBlau") {
+                selector1 = preuOssisBlau;
+                //alert(this.value);
+              } else if (this.value == "ossisBlanc") {
+                selector1 = preuOssisBlanc;
+              } else if (this.value == "cefalopodes") {
+                selector1 = preuCefalopodes;
+              } else if (this.value == "gasteropodes") {
+                selector1 = preuGasteropodes;
+              } else if (this.value == "bivalves") {
+                selector1 = preuBivalves;
+              }
+              var newData = {
+                labels: arrAnysFinal,
+                series: [selector1, selector2, selector3, selector4, selector5],
+              };
+              myChart.update(newData);
+            });
+            
+            //Selector 2
+            $("#selector2").on("change", function () {
+              if (this.value == "ossisBlau") {
+                selector2 = preuOssisBlau;
+                //alert(this.value);
+              } else if (this.value == "ossisBlanc") {
+                selector2 = preuOssisBlanc;
+              } else if (this.value == "cefalopodes") {
+                selector2 = preuCefalopodes;
+              } else if (this.value == "gasteropodes") {
+                selector2 = preuGasteropodes;
+              } else if (this.value == "bivalves") {
+                selector2 = preuBivalves;
+              }
+              var newData = {
+                labels: arrAnysFinal,
+                series: [selector1, selector2, selector3, selector4, selector5],
+              };
+              myChart.update(newData);
+            });
+            //Selector 3
+            $("#selector3").on("change", function () {
+              if (this.value == "ossisBlau") {
+                selector3 = preuOssisBlau;
+                //alert(this.value);
+              } else if (this.value == "ossisBlanc") {
+                selector3 = preuOssisBlanc;
+              } else if (this.value == "cefalopodes") {
+                selector3 = preuCefalopodes;
+              } else if (this.value == "gasteropodes") {
+                selector3 = preuGasteropodes;
+              } else if (this.value == "bivalves") {
+                selector3 = preuBivalves;
+              }
+              var newData = {
+                labels: arrAnysFinal,
+                series: [selector1, selector2, selector3, selector4, selector5],
+              };
+              myChart.update(newData);
+            });
+            //Selector 4
+            $("#selector4").on("change", function () {
+              if (this.value == "ossisBlau") {
+                selector4 = preuOssisBlau;
+                //alert(this.value);
+              } else if (this.value == "ossisBlanc") {
+                selector4 = preuOssisBlanc;
+              } else if (this.value == "cefalopodes") {
+                selector4 = preuCefalopodes;
+              } else if (this.value == "gasteropodes") {
+                selector4 = preuGasteropodes;
+              } else if (this.value == "bivalves") {
+                selector4 = preuBivalves;
+              }
+              var newData = {
+                labels: arrAnysFinal,
+                series: [selector1, selector2, selector3, selector4, selector5],
+              };
+              myChart.update(newData);
+            });
+            //Selector 5
+            $("#selector5").on("change", function () {
+              if (this.value == "ossisBlau") {
+                selector5 = preuOssisBlau;
+                //alert(this.value);
+              } else if (this.value == "ossisBlanc") {
+                selector5 = preuOssisBlanc;
+              } else if (this.value == "cefalopodes") {
+                selector5 = preuCefalopodes;
+              } else if (this.value == "gasteropodes") {
+                selector5 = preuGasteropodes;
+              } else if (this.value == "bivalves") {
+                selector5 = preuBivalves;
+              }
+              var newData = {
+                labels: arrAnysFinal,
+                series: [selector1, selector2, selector3, selector4, selector5],
+              };
+              myChart.update(newData);
+            });
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

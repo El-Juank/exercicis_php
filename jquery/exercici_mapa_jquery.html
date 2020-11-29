@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="El Juank" />
+    <title>Repàs 2 jQuery</title>
+    <link rel="icon" href="" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="../css/css/bootstrap.min.css" />
+    <!--Font Awesome CDN-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--Estils propis-->
+    <link href="" rel="stylesheet" type="text/css" />
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI-->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI CSS-->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!--Estils-->
+    <style type="text/css">
+      #botons {
+        margin: 20px;
+      }
+      #botons input {
+        margin: 0px 10px;
+        padding: 5px 20px;
+      }
+      #mapa div {
+        display: inline-block;
+        width: 225px;
+        margin: 0px -3px;
+      }
+      #mapa div:first-of-type {
+        height: 225px;
+      }
+      #mapa div img {
+        max-width: 225px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <div id="botons">
+        <input id="boto1" type="button" value="Click" />
+        <input id="boto2" type="button" value="Click" />
+        <input id="boto3" type="button" value="Click" />
+        <input id="boto4" type="button" value="Click" />
+        <input id="boto5" type="button" value="Click" />
+      </div>
+      <div id="mapa">
+        <div><img id="mapa1" src="../images/map/mapa-1.jpg" /></div>
+        <div><img id="mapa2" src="../images/map/mapa-2.jpg" /></div>
+        <div><img id="mapa3" src="../images/map/mapa-3.jpg" /></div>
+        <br />
+        <div><img id="mapa4" src="../images/map/mapa-4.jpg" /></div>
+        <div><img id="mapa5" src="../images/map/mapa-5.jpg" /></div>
+        <div><img id="mapa6" src="../images/map/mapa-6.jpg" /></div>
+        <br />
+        <div style="margin-left: 1px">
+          <img id="mapa7" src="../images/map/mapa-7.jpg" />
+        </div>
+        <div><img id="mapa8" src="../images/map/mapa-8.jpg" /></div>
+        <div style="margin-right: 6px">
+          <img id="mapa9" src="../images/map/mapa-9.jpg" />
+        </div>
+      </div>
+    </div>
+    <script language="javascript">
+      $(function () {
+        $("#boto1").click(function () {
+          $("#mapa4").show();
+          $("#mapa2").hide();
+          $("#mapa7, #mapa8").fadeToggle();
+        });
+        $("#boto2").click(function () {
+          $("#mapa3").show();
+          $("#mapa5").hide();
+          $("#mapa2, #mapa6").fadeToggle();
+        });
+      });
+    </script>
+  </body>
+</html>

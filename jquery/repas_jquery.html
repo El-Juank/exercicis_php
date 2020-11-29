@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="El Juank" />
+    <title>Repàs jQuery</title>
+    <link rel="icon" href="" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="../css/css/bootstrap.min.css" />
+    <!--Font Awesome CDN-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--Estils propis-->
+    <link href="" rel="stylesheet" type="text/css" />
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI-->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"
+    ></script>
+    <!--jQueryUI CSS-->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!--Estils-->
+    <style type="text/css"></style>
+  </head>
+  <body>
+    <div class="container">
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" placeholder="Escriu el teu nom" />
+      <br />
+      <label for="cognom">Cognom:</label>
+      <input type="text" id="cognom" placeholder="Escriu el teu cognom" />
+      <br />
+      <label for="edat">Edat:</label>
+      <input type="text" id="edat" placeholder="Escriu el teu nom" />
+      <br />
+      <label for="poblacio">Població:</label>
+      <input type="text" id="poblacio" placeholder="Escriu el teu nom" />
+      <br />
+      <input type="button" id="boto" value="Comprovar" />
+    </div>
+    <script language="javascript">
+      $(function () {
+        //Cambio de color
+        var inputText = $("input[type=text]");
+        inputText.css("background-color", "yellow");
+        inputText.focus(function () {
+          $(this).css("background-color", "white");
+          $(this).css("border", "");
+        });
+        inputText.blur(function () {
+          $(this).css("background-color", "yellow");
+        });
+
+        //Validación
+        $("#boto").click(function () {
+          var nom = $("#nom").val();
+          var cognom = $("#cognom").val();
+          var edat = $("#edat").val();
+          var poblacio = $("#poblacio").val();
+
+          if (nom == "" || nom == null) {
+            alert("No has escrit el teu nom!");
+            $("#nom").css({
+              "background-color": "pink",
+              border: "2px solid red",
+            });
+          } else {
+            alert("Bones " + nom + "!");
+            //Vaciar el campo de texto
+            $("#nom").val("");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
