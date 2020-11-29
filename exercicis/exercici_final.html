@@ -53,6 +53,7 @@
         width: auto;
         margin-bottom: 10px;
       }
+
       /* Color dels selectors */
       #selectColor1 {
         color: #d70206;
@@ -127,22 +128,32 @@
       <div class="ct-chart ct-perfect-fourth"></div>
     </div>
     <script language="javascript">
+      //Variables amb arrays buides per als preus dels peixos
+      var preuOssisBlau = [];
+      var preuOssisBlanc = [];
+      var preuCefalopodes = [];
+      var preuGasteropodes = [];
+      var preuBivalves = [];
+
+      //Variables per als selectors
+      var selector1;
+      var selector2;
+      var selector3;
+      var selector4;
+      var selector5;
       $(function () {
         $.get(
           "https://analisi.transparenciacatalunya.cat/resource/ge3m-4jgm.json",
           function (data, status) {
             var i = 0;
             var arrAnys = [];
-            var preuOssisBlau = [];
-            var preuOssisBlanc = [];
-            var preuCefalopodes = [];
-            var preuGasteropodes = [];
-            var preuBivalves = [];
+
             for (i = 0; i < data.length; i++) {
               var peixos = data[i];
               var anys = peixos.any;
               var preus = peixos.preu_kg;
 
+              //Fem un push a cada array del preu dels peixos filtrant per cada grup
               if (peixos.grup == "OSSIS-BLAU") {
                 preuOssisBlau.push(preus);
               } else if (peixos.grup == "OSSIS-BLANC") {
@@ -159,12 +170,13 @@
               //Merci per lo del .push()! No hi havia caigut i a Stackoverflow es flipen
             }
 
+            //Com a l'array dels anys hi ha anys repetits creem una nova array eliminant els duplicats
             var arrAnysFinal = arrAnys.filter(function (elem, index, self) {
               return index === self.indexOf(elem);
               //Estimo molt aquest codi <3
             });
 
-            //Gràfic
+            //Codi del gràfic
             var data = {
               labels: arrAnysFinal,
               series: [
@@ -184,121 +196,54 @@
 
             new Chartist.Line(".ct-chart", data, options);
 
-            //Selectors
-            var selector1 = preuOssisBlau;
-            var selector2 = preuOssisBlanc;
-            var selector3 = preuCefalopodes;
-            var selector4 = preuGasteropodes;
-            var selector5 = preuBivalves;
+            //Posem contingut per defecte a cada selector (en aquest cas les arrays dels preus dels peixos)
+            selector1 = preuOssisBlau;
+            selector2 = preuOssisBlanc;
+            selector3 = preuCefalopodes;
+            selector4 = preuGasteropodes;
+            selector5 = preuBivalves;
 
+            //Fem una variable amb el codi per crear el gràfic per reutilitzar-lo posteriorment a l'hora d'actualitzar-lo
             var myChart = new Chartist.Line(".ct-chart", data, options);
 
-            //He intentat possar les seguents funcions dins d'un for() per no repetir-les però no m'ha funcionat
-
-            //Selector 1
-            $("#selector1").on("change", function () {
-              if (this.value == "ossisBlau") {
-                selector1 = preuOssisBlau;
-                //alert(this.value);
-              } else if (this.value == "ossisBlanc") {
-                selector1 = preuOssisBlanc;
-              } else if (this.value == "cefalopodes") {
-                selector1 = preuCefalopodes;
-              } else if (this.value == "gasteropodes") {
-                selector1 = preuGasteropodes;
-              } else if (this.value == "bivalves") {
-                selector1 = preuBivalves;
-              }
-              var newData = {
-                labels: arrAnysFinal,
-                series: [selector1, selector2, selector3, selector4, selector5],
-              };
-              myChart.update(newData);
-            });
-            
-            //Selector 2
-            $("#selector2").on("change", function () {
-              if (this.value == "ossisBlau") {
-                selector2 = preuOssisBlau;
-                //alert(this.value);
-              } else if (this.value == "ossisBlanc") {
-                selector2 = preuOssisBlanc;
-              } else if (this.value == "cefalopodes") {
-                selector2 = preuCefalopodes;
-              } else if (this.value == "gasteropodes") {
-                selector2 = preuGasteropodes;
-              } else if (this.value == "bivalves") {
-                selector2 = preuBivalves;
-              }
-              var newData = {
-                labels: arrAnysFinal,
-                series: [selector1, selector2, selector3, selector4, selector5],
-              };
-              myChart.update(newData);
-            });
-            //Selector 3
-            $("#selector3").on("change", function () {
-              if (this.value == "ossisBlau") {
-                selector3 = preuOssisBlau;
-                //alert(this.value);
-              } else if (this.value == "ossisBlanc") {
-                selector3 = preuOssisBlanc;
-              } else if (this.value == "cefalopodes") {
-                selector3 = preuCefalopodes;
-              } else if (this.value == "gasteropodes") {
-                selector3 = preuGasteropodes;
-              } else if (this.value == "bivalves") {
-                selector3 = preuBivalves;
-              }
-              var newData = {
-                labels: arrAnysFinal,
-                series: [selector1, selector2, selector3, selector4, selector5],
-              };
-              myChart.update(newData);
-            });
-            //Selector 4
-            $("#selector4").on("change", function () {
-              if (this.value == "ossisBlau") {
-                selector4 = preuOssisBlau;
-                //alert(this.value);
-              } else if (this.value == "ossisBlanc") {
-                selector4 = preuOssisBlanc;
-              } else if (this.value == "cefalopodes") {
-                selector4 = preuCefalopodes;
-              } else if (this.value == "gasteropodes") {
-                selector4 = preuGasteropodes;
-              } else if (this.value == "bivalves") {
-                selector4 = preuBivalves;
-              }
-              var newData = {
-                labels: arrAnysFinal,
-                series: [selector1, selector2, selector3, selector4, selector5],
-              };
-              myChart.update(newData);
-            });
-            //Selector 5
-            $("#selector5").on("change", function () {
-              if (this.value == "ossisBlau") {
-                selector5 = preuOssisBlau;
-                //alert(this.value);
-              } else if (this.value == "ossisBlanc") {
-                selector5 = preuOssisBlanc;
-              } else if (this.value == "cefalopodes") {
-                selector5 = preuCefalopodes;
-              } else if (this.value == "gasteropodes") {
-                selector5 = preuGasteropodes;
-              } else if (this.value == "bivalves") {
-                selector5 = preuBivalves;
-              }
-              var newData = {
-                labels: arrAnysFinal,
-                series: [selector1, selector2, selector3, selector4, selector5],
-              };
-              myChart.update(newData);
+            //Agafem tots els "selects" i al canviar d'opció s'executa la funció "setSelectors"
+            $("select").on("change", function () {
+              setSelector(this, arrAnysFinal, myChart);
             });
           }
         );
       });
+
+      //Funció per canviar el contingut de les variables dels selectors mitjançant switch
+      function setSelector(selector, arrAnysFinal, myChart) {
+        switch (selector.value) {
+          case "ossisBlau":
+            window[selector.id] = preuOssisBlau;
+            break;
+          case "ossisBlanc":
+            window[selector.id] = preuOssisBlanc;
+            break;
+          case "cefalopodes":
+            window[selector.id] = preuCefalopodes;
+            break;
+          case "gasteropodes":
+            window[selector.id] = preuGasteropodes;
+            break;
+          case "bivalves":
+            window[selector.id] = preuBivalves;
+            break;
+          default:
+            alert("Error, element no trobat");
+            break;
+        }
+
+        //Actualitzem el gràfic
+        var newData = {
+          labels: arrAnysFinal,
+          series: [selector1, selector2, selector3, selector4, selector5],
+        };
+        myChart.update(newData);
+      }
     </script>
   </body>
 </html>
