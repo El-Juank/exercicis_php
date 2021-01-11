@@ -1,0 +1,186 @@
+/*-----------------------------------------------------
+  Full d'estils de l'exercici_final_de_php_i_mysql.php
+  Aquesta vegada els faig en un fitxer apart perque
+  quedi més net
+-------------------------------------------------------*/
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  box-sizing: content-box;
+}
+
+.logo {
+  color: #000;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.header nav a {
+  text-decoration: none;
+}
+
+.header nav .active,
+.header nav a:hover {
+  text-decoration: none;
+  padding-bottom: 4px;
+  --border-opacity: 1;
+  border-color: #000;
+  border-width: 0;
+  border-bottom-width: 3px;
+  border-style: solid;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin-top: 56px;
+  background-color: #fff;
+  padding-top: 20px;
+  padding-left: 25px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f105";
+  font-weight: 900;
+}
+
+/* Cos */
+.client-alert {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 350px;
+  top: 105px;
+}
+
+.back-button {
+  position: absolute;
+  left: 20px;
+}
+
+.edit-customer h1,
+.edit-customer h2,
+.customers-list h1,
+.customers-list h2 {
+  text-align: center;
+}
+
+.edit-customer h2,
+.customers-list h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding-bottom: 25px;
+}
+
+table th:nth-of-type(1),
+th:nth-of-type(2),
+th:nth-of-type(3) {
+  min-width: 130px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle !important;
+  font-size: 90%;
+}
+
+.d-flex div {
+  flex-grow: 1;
+}
+
+.customer-card {
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filter {
+  cursor: pointer !important;
+}
+
+.wrapper1,
+.wrapper2 {
+  overflow-y: hidden;
+}
+
+.div1 {
+  width: 1000px;
+  height: 20px;
+}
+
+/* Paginació */
+.page-link {
+  color: #495057;
+}
+
+.page-link:hover {
+  color: #000;
+}
+
+.page-item.active .page-link {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+li.disabled {
+  cursor: not-allowed;
+}
+li.disabled a {
+  pointer-events: none;
+}
+
+/* Footer */
+.logo-footer {
+  margin: 10px 0px;
+}
+
+.footer-contact a {
+  color: #000;
+}
+
+.footer-contact a:hover {
+  text-decoration: none;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 8px;
+  color: #000;
+  border: 0;
+}
+
+.footer-social i {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+  .breadcrumb {
+    margin-top: 97px;
+  }
+  .client-alert {
+    top: 165px;
+  }
+
+  .edit-customer,
+  .customers-list {
+    margin-top: 4rem !important;
+  }
+}
